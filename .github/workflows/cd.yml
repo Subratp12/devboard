@@ -5,7 +5,7 @@ on:
   workflow_call: 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ip-10-0-0-112
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -26,5 +26,4 @@ jobs:
       - name: Deploy with Docker Compose
         run: |
           docker compose pull   # ensures latest images
-          docker compose down
           docker compose up -d --force-recreate
